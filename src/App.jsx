@@ -25,8 +25,12 @@ function App() {
     setShowModal(true);
     console.log(1);
   };
+  const closeModal = (e) => {
+    if (e.target.className === "overlay") setShowModal(false);
+    if (e.key === "Escape") setShowModal(false);
+  };
   return (
-    <>
+    <div onClick={closeModal} onKeyDown={closeModal} className="App">
       <Navbar usersLength={users.length} />
       <main>
         <UserList users={users} deleteUSers={DeleteUSers} />
@@ -37,17 +41,8 @@ function App() {
         <div className="create-user">Create users</div>
       </button>
       <Footer />
-    </>
+    </div>
   );
 }
 
 export default App;
-// {
-//   id: 1,
-//   imageURL: "https://picsum.photos/200/300?random=1",
-//   name: "Akmaljon",
-//   surname: "Akhrorov",
-//   age: "35",
-//   from: "Uzbekistan",
-//   job: "developer",
-// }
