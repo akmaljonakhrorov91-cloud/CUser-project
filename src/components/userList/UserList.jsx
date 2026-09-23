@@ -1,13 +1,13 @@
 import React from "react";
 import "./UserList.css";
-function UserList({ users }) {
+function UserList({ users, deleteUSers }) {
   return (
     <div className="userList">
       <div className="userList-container container">
         {users.map((user) => {
           return (
-            <div className="card">
-              <div className="card-inner" key={user.id}>
+            <div className="card" key={user.id}>
+              <div className="card-inner">
                 <img
                   src={user.imageURL}
                   alt={user.name}
@@ -19,7 +19,7 @@ function UserList({ users }) {
                 </h2>
                 <p>From: {user.from}</p>
                 <p>Job: {user.job}</p>
-                <button>delete</button>
+                <button onClick={() => deleteUSers(user.id)}>delete</button>
               </div>
             </div>
           );

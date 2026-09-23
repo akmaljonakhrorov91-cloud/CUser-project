@@ -54,11 +54,22 @@ function App() {
       job: "developer",
     },
   ]);
+  const DeleteUSers = (id) => {
+    // let response = users.filter((data) => {
+    //   return id !== data.id;
+    // });
+    // setUsers(response);
+    setUsers((prev) => {
+      return prev.filter((data) => {
+        return data.id !== id;
+      });
+    });
+  };
   return (
     <>
       <Navbar usersLength={users.length} />
       <main>
-        <UserList users={users} />
+        <UserList users={users} deleteUSers={DeleteUSers} />
         <div className="no-users">{users.length === 0 && "No Users"}</div>
       </main>
       <Footer />
