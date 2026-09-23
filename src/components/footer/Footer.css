@@ -1,0 +1,38 @@
+/* .footer {
+  text-align: center;
+  background-color: rgba(153, 153, 153, 0.1);
+  padding: 15px 0;
+  width: 100%;
+} */
+/* .footer {
+  text-align: center;
+  background-color: rgba(153, 153, 153, 0.1);
+  width: 100%;
+} */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* Qo'shimcha sozlamalar */
+  background-color: rgba(
+    153,
+    153,
+    153,
+    0.9
+  ); /* Orqa fani shaffof bo'lmasa yaxshi, kontent ko'rinib qolmasligi uchun */
+  text-align: center;
+  z-index: 1000; /* Boshqa elementlar ustidan chiqib turishi uchun */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer a {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
