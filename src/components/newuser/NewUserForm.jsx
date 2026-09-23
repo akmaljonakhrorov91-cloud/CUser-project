@@ -1,7 +1,7 @@
 import "./NewUserForm.css";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-function NewUserForm() {
+function NewUserForm({ addUSers }) {
   const [users, setUSers] = useState([
     {
       id: uuidv4(),
@@ -16,7 +16,7 @@ function NewUserForm() {
   ]);
   const handelSubmit = (e) => {
     e.preventDefault();
-    console.log(users);
+    addUSers(users);
   };
   return (
     <div className="overlay">

@@ -21,13 +21,17 @@ function App() {
     });
   };
   const showModalFunc = () => {
-    // e.preventDefault();
     setShowModal(true);
-    console.log(1);
   };
   const closeModal = (e) => {
     if (e.target.className === "overlay") setShowModal(false);
     if (e.key === "Escape") setShowModal(false);
+  };
+  const addUSers = (user) => {
+    setUsers((prev) => {
+      return [...prev, user];
+    });
+    setShowModal(false);
   };
   return (
     <div onClick={closeModal} onKeyDown={closeModal} className="App">
@@ -36,7 +40,7 @@ function App() {
         <UserList users={users} deleteUSers={DeleteUSers} />
         <div className="no-users">{users.length === 0 && "No Users"}</div>
       </main>
-      {showModal && <NewUserForm />}
+      {showModal && <NewUserForm addUSers={addUSers} />}
       <button onClick={() => showModalFunc()}>
         <div className="create-user">Create users</div>
       </button>
