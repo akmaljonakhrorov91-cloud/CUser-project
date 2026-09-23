@@ -4,56 +4,11 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import UserList from "./components/userList/UserList";
 import { useState } from "react";
+import NewUserForm from "./components/newuser/NewUserForm";
 
 function App() {
-  const [users, setUsers] = useState([
-    ,
-    {
-      id: 1,
-      imageURL: "https://picsum.photos/200/300?random=1",
-      name: "Akmaljon",
-      surname: "Akhrorov",
-      age: "35",
-      from: "Uzbekistan",
-      job: "developer",
-    },
-    {
-      id: 2,
-      imageURL: "https://picsum.photos/200/300?random=2",
-      name: "Akmaljon",
-      surname: "Akhrorov",
-      age: "35",
-      from: "Uzbekistan",
-      job: "developer",
-    },
-    {
-      id: 3,
-      imageURL: "https://picsum.photos/200/300?random=3",
-      name: "Akmaljon",
-      surname: "Akhrorov",
-      age: "35",
-      from: "Uzbekistan",
-      job: "developer",
-    },
-    {
-      id: 4,
-      imageURL: "https://picsum.photos/200/300?random=4",
-      name: "Akmaljon",
-      surname: "Akhrorov",
-      age: "35",
-      from: "Uzbekistan",
-      job: "developer",
-    },
-    {
-      id: 5,
-      imageURL: "https://picsum.photos/200/300?random=5",
-      name: "Akmaljon",
-      surname: "Akhrorov",
-      age: "35",
-      from: "Uzbekistan",
-      job: "developer",
-    },
-  ]);
+  const [showModal, setShowModal] = useState(false);
+  const [users, setUsers] = useState([]);
   const DeleteUSers = (id) => {
     // let response = users.filter((data) => {
     //   return id !== data.id;
@@ -65,6 +20,11 @@ function App() {
       });
     });
   };
+  const showModalFunc = () => {
+    // e.preventDefault();
+    setShowModal(true);
+    console.log(1);
+  };
   return (
     <>
       <Navbar usersLength={users.length} />
@@ -72,9 +32,22 @@ function App() {
         <UserList users={users} deleteUSers={DeleteUSers} />
         <div className="no-users">{users.length === 0 && "No Users"}</div>
       </main>
+      {showModal && <NewUserForm />}
+      <button onClick={() => showModalFunc()}>
+        <div className="create-user">Create users</div>
+      </button>
       <Footer />
     </>
   );
 }
 
 export default App;
+// {
+//   id: 1,
+//   imageURL: "https://picsum.photos/200/300?random=1",
+//   name: "Akmaljon",
+//   surname: "Akhrorov",
+//   age: "35",
+//   from: "Uzbekistan",
+//   job: "developer",
+// }
